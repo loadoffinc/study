@@ -1,0 +1,20 @@
+{
+  "name": "database-sql-curriculum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Step-by-step curriculum: DB setup to SQL execution",
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:wait": "node src/wait-db.js",
+    "db:init": "node src/apply-sql.js sql/schema.sql && node src/apply-sql.js sql/seed.sql",
+    "db:reset": "node src/apply-sql.js sql/schema.sql && node src/apply-sql.js sql/seed.sql",
+    "run:sql": "node src/run-sql.js",
+    "test": "node --test tests/normal.test.js tests/error.test.js",
+    "test:normal": "node --test tests/normal.test.js",
+    "test:error": "node --test tests/error.test.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
